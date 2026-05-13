@@ -1,18 +1,19 @@
 <?php
-// ============================================================
-//  db.php  —  Database connection
-//  Place this file in the same folder as register_event.php
-//  Edit the 4 constants below to match your XAMPP setup
-// ============================================================
+require_once __DIR__ . '/vendor/autoload.php';
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'attendance_segregator');
-define('DB_USER', 'root');       // default XAMPP user
-define('DB_PASS', '');           // default XAMPP password (empty)
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER'])->notEmpty();
+
+define('DB_HOST', $_ENV['DB_HOST']);
+define('DB_NAME', $_ENV['DB_NAME']);
+define('DB_USER', $_ENV['DB_USER']);
+define('DB_PASS', $_ENV['DB_PASS'] ?? '');
 
 try {
     $pdo = new PDO(
-        'mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8mb4',
+        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
         DB_USER,
         DB_PASS,
         [
