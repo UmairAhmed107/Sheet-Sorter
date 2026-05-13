@@ -5,7 +5,6 @@ body {
     color: black;
 }
 
-/* HEADER */
 .main-header {
     background-color: white;
     color: black;
@@ -260,13 +259,41 @@ input, select {
     box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
-.dropdown-profile img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #ccc;
+/* Profile section alignment */
+.dropdown-profile {
+    text-align: center;
+    margin-bottom: 16px;
 }
 
+/* ✅ Avatar container (controls size, NOT img directly) */
+.dropdown-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 10px;
+}
+.dropdown-avatar .dropdown-vit-img {
+    width: 65% !important;
+    height: 65% !important;
+    object-fit: contain;
+}
+
+/* ✅ Image styling (no override conflict) */
+.dropdown-vit-img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
 .logout-btn {
     display: block;
     padding: 10px;
@@ -282,4 +309,26 @@ input, select {
 
 .logout-btn:hover {
     background: rgb(45, 0, 140);
+}
+#events_table_container{
+    overflow-x: auto;
+}
+.btn-delete{
+    white-space:nowrap;
+}
+.page-footer {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: rgb(27,0,93); 
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    position: relative; 
+    bottom: 0;
+    margin-top: 30px; 
+    border-top: 2px solid #fff;
+}
+
+.page-footer strong {
+    font-weight: 600;
 }
